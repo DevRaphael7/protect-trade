@@ -11,11 +11,11 @@ class Usuario {
 
   const Usuario({
     this.id,
-    this.nome,
-    this.senha,
-    this.email,
+    @required this.nome,
+    @required this.senha,
+    @required this.email,
     this.telefone,
-    this.logoUsuario,
+    @required this.logoUsuario,
     
   });
   

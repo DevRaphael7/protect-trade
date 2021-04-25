@@ -101,7 +101,7 @@ class HomePage extends StatelessWidget{
                     child: RaisedButton(
                           color: B,
                           onPressed: (){
-                            print('Conseguiu');
+                            Navigator.of(context).pushNamed('/AddFunc');
                           },
                           child: Icon(
                             

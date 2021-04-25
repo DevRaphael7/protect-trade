@@ -5,6 +5,7 @@ import 'package:protect_trade/code/primary_page.dart';
 import 'package:provider/provider.dart';
 import 'package:protect_trade/provider/usuario.dart';
 import 'package:protect_trade/code/login.dart';
+import 'package:protect_trade/code/add_func.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget{
         '/cadastro': (context) => Cadastro(),
         '/home': (context) => HomePage(),
         '/Login': (context) => Login(),
-
+        '/AddFunc': (context) => AddFunc(),
       }
     ),
     );
