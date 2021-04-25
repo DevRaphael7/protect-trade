@@ -6,8 +6,6 @@ const name_Logo = Color.fromARGB(255, 67, 64, 64);
 const B = Color.fromARGB(255, 37, 121, 217);
 
 class HomePage extends StatelessWidget{
-  
-
   @override
   Widget build(BuildContext context){
 
@@ -15,6 +13,16 @@ class HomePage extends StatelessWidget{
     String valores = data['name'];
     String email = data['email'];
     String url = data['url'];
+
+    if(url == null || url.isEmpty){
+      url = 'https://th.bing.com/th/id/Rfd5a137d4cc43657449836c511c422e1?rik=xs4NJnZD7SrL9w&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_24787.png&ehk=XT7ycIEO1QBstZHkYYA%2fmHm7bSjaBM1nSo61Bl%2bnJSs%3d&risl=&pid=ImgRaw';
+    }
+
+    
+    final avatar = url == null || url.isEmpty
+      ? CircleAvatar(child: Icon(Icons.person)) 
+      : CircleAvatar(backgroundImage: NetworkImage(url));
+    
 
     return Scaffold(
       backgroundColor: fundo,
@@ -48,10 +56,10 @@ class HomePage extends StatelessWidget{
                     width: 5,
                   ),
                   CircleAvatar(
-                    backgroundImage: NetworkImage(url), 
-                      radius: 55.0,
-                    ),
-
+                    backgroundColor: Colors.white,
+                    backgroundImage: NetworkImage(url),
+                    radius: 50.0,
+                  ),
                   // Icon(Icons.account_circle_rounded,
                   // size: 100.0),
                   SizedBox(
