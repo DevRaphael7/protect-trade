@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return ChangeNotifierProvider(
-      create: (ctx) => Usuario(),
+      create: (ctx) => Usuarios(),
       child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Aplicativo em Flutter',

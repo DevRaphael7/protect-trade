@@ -16,10 +16,19 @@ class Cadastro extends StatelessWidget{
   @override
   Widget build(BuildContext context){
 
-  void _paraOutraTela(){
+  void _paraOutraTelaHome(){
     Navigator.pushReplacementNamed(
       context, 
       '/home',
+      arguments: {'name': myController.value.text,
+                  'email': emailConntroller.value.text}
+      );
+  }
+
+  void _paraOutraTelaLogin(){
+    Navigator.pushReplacementNamed(
+      context, 
+      '/Login',
       arguments: {'name': myController.value.text,
                   'email': emailConntroller.value.text}
       );
@@ -254,7 +263,7 @@ class Cadastro extends StatelessWidget{
                             
                             if(isValid){
                               _form.currentState.save();
-                              _paraOutraTela();
+                              _paraOutraTelaHome();
                             }
                           }
                           
@@ -266,7 +275,7 @@ class Cadastro extends StatelessWidget{
                   ),
                   TextButton(
                     onPressed: (){
-                      Navigator.of(context).pushNamed('/Login');
+                      _paraOutraTelaLogin();
                     }, 
                     child: Text('Login', 
                                 style: 

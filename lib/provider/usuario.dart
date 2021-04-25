@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Usuario with ChangeNotifier{
+class Usuarios with ChangeNotifier{
 
   
 } 
