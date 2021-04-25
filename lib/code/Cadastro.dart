@@ -10,6 +10,7 @@ class Cadastro extends StatelessWidget{
   final _form = GlobalKey<FormState>();
   final myController = TextEditingController();
   final emailConntroller = TextEditingController();
+  final urlController = TextEditingController();
   static String nome;
   static String senha;
 
@@ -21,7 +22,8 @@ class Cadastro extends StatelessWidget{
       context, 
       '/home',
       arguments: {'name': myController.value.text,
-                  'email': emailConntroller.value.text}
+                  'email': emailConntroller.value.text,
+                  'url': urlController.value.text,}
       );
   }
 
@@ -74,7 +76,9 @@ class Cadastro extends StatelessWidget{
 
                   Icon(
                     Icons.account_circle_sharp,
-                    size: 200),
+                    size: 200,
+                    color: Colors.white,
+                  ),
 
                   Container(
                     color: null,
@@ -229,6 +233,33 @@ class Cadastro extends StatelessWidget{
                     filled: true,
                     hintText: 'Telefone:',
                     prefixIcon: Icon(Icons.phone),
+                    border: OutlineInputBorder(
+                      borderRadius: 
+                      BorderRadius.all(
+                        Radius.circular(25))
+                  ),
+
+                ),
+                ),
+                ),
+
+                
+                SizedBox(
+                  height: 12,
+                ),
+
+                Container(
+                  color: null,
+                  width: 450,
+                  child: TextFormField(
+                    controller: urlController,
+                    keyboardType: TextInputType.url,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    filled: true,
+                    hintText: 'URL do Avatar',
+                    prefixIcon: Icon(Icons.add_photo_alternate_rounded),
                     border: OutlineInputBorder(
                       borderRadius: 
                       BorderRadius.all(

@@ -4,6 +4,7 @@ import 'package:protect_trade/provider/usuario.dart';
 import 'package:protect_trade/conta/usuario.dart';
 import 'package:protect_trade/code/listaEmpregados.dart';
 
+const B = Color.fromARGB(255, 37, 121, 217);
 const fundo = Color.fromARGB(255, 78, 76, 76);
 const name_Logo = Color.fromARGB(255, 67, 64, 64);
 

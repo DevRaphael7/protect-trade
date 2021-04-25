@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:protect_trade/provider/usuario.dart';
 import 'package:protect_trade/conta/usuario.dart';
 
+const B = Color.fromARGB(255, 37, 121, 217);
+
 class UserTile extends StatelessWidget {
 
   final Usuario usuarios;
@@ -11,7 +13,7 @@ class UserTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final avatar = usuarios.logoUsuario == null || usuarios.logoUsuario.isEmpty
-      ? Container(child: CircleAvatar(child: Icon(Icons.person, size: 25))) 
+      ? CircleAvatar(child: Icon(Icons.person, size: 25, color: Colors.white,), backgroundColor: B,)
       : CircleAvatar(backgroundImage: NetworkImage(usuarios.logoUsuario), radius: 35.0,);
 
     return Card(
@@ -39,7 +41,7 @@ class UserTile extends StatelessWidget {
               ),
               IconButton(
                 icon: Icon(Icons.delete),
-               color: Colors.red,
+               color: B,
                 onPressed: (){},
               ),
           ],)

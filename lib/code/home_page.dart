@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget{
     Map data = ModalRoute.of(context).settings.arguments;
     String valores = data['name'];
     String email = data['email'];
+    String url = data['url'];
 
     return Scaffold(
       backgroundColor: fundo,
@@ -46,8 +47,13 @@ class HomePage extends StatelessWidget{
                   SizedBox(
                     width: 5,
                   ),
-                  Icon(Icons.account_circle_rounded,
-                  size: 100.0),
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(url), 
+                      radius: 55.0,
+                    ),
+
+                  // Icon(Icons.account_circle_rounded,
+                  // size: 100.0),
                   SizedBox(
                     width: 20,
                   ),
