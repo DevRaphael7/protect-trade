@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:protect_trade/provider/usuario.dart';
 import 'package:protect_trade/code/login.dart';
 import 'package:protect_trade/code/add_func.dart';
+import 'package:protect_trade/code/telaFormularioEmpregado.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget{
         '/home': (context) => HomePage(),
         '/Login': (context) => Login(),
         '/AddFunc': (context) => AddFunc(),
+        '/formEmp': (context) => TelaFormularioAdd(),
       }
     ),
     );

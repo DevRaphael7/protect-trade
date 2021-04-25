@@ -23,7 +23,8 @@ class Cadastro extends StatelessWidget{
       '/home',
       arguments: {'name': myController.value.text,
                   'email': emailConntroller.value.text,
-                  'url': urlController.value.text,}
+                  'url': urlController.value.text,
+                  }
       );
   }
 
@@ -199,7 +200,7 @@ class Cadastro extends StatelessWidget{
                       }
                     },
                     onSaved: (emailConntroller){
-                      print(emailConntroller);
+                      
                     },
                     keyboardType: TextInputType.emailAddress,
                     obscureText: false,
@@ -265,8 +266,12 @@ class Cadastro extends StatelessWidget{
                       BorderRadius.all(
                         Radius.circular(25))
                   ),
+                    
 
                 ),
+                onSaved: (value){
+
+                }
                 ),
                 ),
 

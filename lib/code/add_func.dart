@@ -16,6 +16,7 @@ class AddFunc extends StatelessWidget {
     final Usuarios usuarios = Provider.of(context);
 
     return Scaffold(
+
       backgroundColor: fundo,
       appBar: AppBar(
         leading: IconButton(
@@ -33,9 +34,9 @@ class AddFunc extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add, color: Colors.black),
-            onPressed: (){
-              
-            },
+              onPressed: (){
+                Navigator.of(context).pushNamed('/formEmp');
+              },
           ), 
         ],
       ),
