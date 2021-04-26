@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:protect_trade/code/Cadastro.dart';
 import 'package:protect_trade/code/Home_page.dart';
+import 'package:protect_trade/code/maquinas.dart';
 import 'package:protect_trade/code/primary_page.dart';
 import 'package:provider/provider.dart';
 import 'package:protect_trade/provider/usuario.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget{
         '/Login': (context) => Login(),
         '/AddFunc': (context) => AddFunc(),
         '/formEmp': (context) => TelaFormularioAdd(),
-      }
+        '/maquinas': (context) => Maquinas(),
+      } 
     ),
     );
   }

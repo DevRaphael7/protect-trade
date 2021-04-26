@@ -203,6 +203,32 @@ class HomePage extends StatelessWidget{
             children: [
             SizedBox(
                 width: 65,
+              ), 
+              Column(
+                children: [
+                  SizedBox(
+                    width: 120, 
+                    height: 120, 
+                    child: RaisedButton(
+                      color: B,
+                      onPressed: (){Navigator.of(context).pushNamed('/maquinas');}, 
+                      child: Icon(
+                        Icons.desktop_windows_sharp, 
+                        size: 50.0, 
+                        color: Colors.white),
+                        )
+                        ),
+                        SizedBox(height: 10,),
+                        Text('Máquinas',
+                          style: 
+                            TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                            ))
+                ]
+              ),
+              SizedBox(
+                width: 100,
               ),
               Column(
                 children: [
@@ -231,26 +257,7 @@ class HomePage extends StatelessWidget{
                   color: Colors.white,
                 ))
                 ],
-              ), 
-              SizedBox(
-                width: 80,
               ),
-              Column(
-                children: [
-                  SizedBox(
-                    width: 120, 
-                    height: 120, 
-                    child: RaisedButton(
-                      color: B,
-                      onPressed: (){print('w');}, 
-                      child: Icon(
-                        Icons.desktop_windows_sharp, 
-                        size: 50.0, 
-                        color: Colors.white),
-                        )
-                        )
-                ]
-              )
               
             ]
           ),
