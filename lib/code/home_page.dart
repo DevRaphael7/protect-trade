@@ -231,7 +231,27 @@ class HomePage extends StatelessWidget{
                   color: Colors.white,
                 ))
                 ],
+              ), 
+              SizedBox(
+                width: 80,
               ),
+              Column(
+                children: [
+                  SizedBox(
+                    width: 120, 
+                    height: 120, 
+                    child: RaisedButton(
+                      color: B,
+                      onPressed: (){print('w');}, 
+                      child: Icon(
+                        Icons.desktop_windows_sharp, 
+                        size: 50.0, 
+                        color: Colors.white),
+                        )
+                        )
+                ]
+              )
+              
             ]
           ),
         ],
