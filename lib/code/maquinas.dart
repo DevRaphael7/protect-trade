@@ -1,8 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 const name_Logo = Color.fromARGB(255, 67, 64, 64);
 
-class Maquinas extends StatelessWidget {
+class Maquinas extends StatefulWidget {
+
+
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<Maquinas>{
+
+  VideoPlayerController _controller;
+  Future<void> _initializeVideoPlayerFuture;
+
+  @override
+  void initState(){
+    _controller = VideoPlayerController.network('https://www.youtube.com/watch?v=2alg7MQ6_sI');
+    _initializeVideoPlayerFuture = _controller.initialize();
+    _controller.setLooping(true);
+    _controller.setVolume(1.0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
