@@ -2,15 +2,11 @@
 
 A new Flutter project.
 
-## Getting Started
+### Sobre o projeto
 
-This project is a starting point for a Flutter application.
+O Protect Trade é um projeto feito por um grupo de estudantes da Universidade Nove de Julho. O objetivo deste projeto é puramente universitário.
 
-A few resources to get you started if this is your first Flutter project:
+### Conteúdo
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- assets: são todos os arquivos de mídia utilizado para elaboração tanto do protótipo, apresentação quanto para o código do aplicativo.
+- php: esta pasta é o backend do aplicativo Flutter. Com ela conectamos o nosso app a o banco de dados MySQL.
