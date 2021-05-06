@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:protect_trade/code/Cadastro.dart';
 
 const fundo = Color.fromARGB(255, 78, 76, 76);
-const name_Logo = Color.fromARGB(255, 67, 64, 64);
+const name_Logo = 0xFFC1C1C1;
 const B = Color.fromARGB(255, 37, 121, 217);
 
 class HomePage extends StatelessWidget{
@@ -21,30 +21,59 @@ class HomePage extends StatelessWidget{
     
 
     return Scaffold(
+      
       backgroundColor: fundo,
       appBar: AppBar(
       automaticallyImplyLeading: true,
-      leading: IconButton(
-        color: Colors.black,
-        icon: Icon(Icons.arrow_back),
-        onPressed: (){
-          Navigator.of(context).pop();
-        },
-      ),
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF333333),
       title: Text('Protect Trade',
                   style: TextStyle(
-                    color: name_Logo,
+                    color: Color(name_Logo),
                   ) 
       )
     ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+    drawer: Drawer(
+        child: Container(
+          color: fundo,
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              arrowColor: B,
+              accountName: Text('$valores'),
+              accountEmail: Text('$email'),
+              currentAccountPicture: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    backgroundImage: NetworkImage(url),
+                    radius: 25.5,
+                  ),
+            ),
+            ListTile(
+              trailing: Icon(Icons.arrow_forward_sharp, color: Color(name_Logo)),
+              title: Text('Voltar', style: TextStyle(color: Color(name_Logo))),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            
+            ),
+            Divider(),
+            ListTile(
+              trailing: Icon(Icons.build_circle_sharp, color: Color(name_Logo)),
+              title: Text('Configurações', style: TextStyle(color: Color(name_Logo))),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            
+            ),
+        ],),),
+      ),
+      body: SingleChildScrollView( 
+        child: Column(
+        
         children: <Widget>[
           Row(children: [
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 120,
+              height: 80,
               color: Colors.white,
               child: Row(
                 children: <Widget>[
@@ -54,7 +83,7 @@ class HomePage extends StatelessWidget{
                   CircleAvatar(
                     backgroundColor: Colors.white,
                     backgroundImage: NetworkImage(url),
-                    radius: 50.0,
+                    radius: 25.0,
                   ),
                   // Icon(Icons.account_circle_rounded,
                   // size: 100.0),
@@ -71,7 +100,7 @@ class HomePage extends StatelessWidget{
                         Text('Sr. $valores',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 25,
+                          fontSize: 12.5,
                         ),
                       ),
                       SizedBox(
@@ -79,7 +108,7 @@ class HomePage extends StatelessWidget{
                       ),
                       Text('$email',
                       style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 10,
                       color: Colors.grey
                         ),
                     )
@@ -94,20 +123,20 @@ class HomePage extends StatelessWidget{
           ],
           ),
           SizedBox(
-            height: 120,
+            height: 45,
           ),
-          Row(
+          Row( // ===================================================
             
             children: [
               SizedBox(
-                width: 50,
+                width: 20,
               ),
               Column(
                 children: [
                   SizedBox(
                     
-                    width: 120,
-                    height: 120,
+                    width: 80,
+                    height: 80,
                     child: RaisedButton(
                           color: B,
                           onPressed: (){
@@ -125,7 +154,7 @@ class HomePage extends StatelessWidget{
               Text('Adicionar empregados',
               style: 
                 TextStyle(
-                  fontSize: 15,
+                  fontSize: 10,
                   color: Colors.white,
                 ))
                 ],
@@ -138,8 +167,8 @@ class HomePage extends StatelessWidget{
               Column(
                 children: [
                   SizedBox(
-                width: 120,
-                height: 120,
+                width: 80,
+                height: 80,
                 child: RaisedButton(
                         color: B,
                         onPressed: (){
@@ -156,59 +185,30 @@ class HomePage extends StatelessWidget{
               Text('Câmera do estabelecimento',
               style: 
                 TextStyle(
-                  fontSize: 15,
-                  color: Colors.white,
-                ))
-                ],
-              ),
-
-              SizedBox(
-                width: 50,
-              ),
-
-              Column(
-                children: [
-                  SizedBox(
-                width: 120,
-                height: 120,
-                child: RaisedButton(
-                        color: B,
-                        onPressed: (){
-                          print('Conseguiu');
-                        },
-                        child: Icon(
-                        Icons.attach_money,
-                        size: 50.0,
-                        color: Colors.white)
-
-                        )
-              ),
-              SizedBox(height: 10,),
-              Text('Tela de pagamento',
-              style: 
-                TextStyle(
-                  fontSize: 15,
+                  fontSize: 10,
                   color: Colors.white,
                 ))
                 ],
               ),
 
               
+
+              
             ],
-          ),
+          ), 
           SizedBox(
             height: 10,
           ),
-          Row(
+          Row( // ======================================================= * 7 *
             children: [
             SizedBox(
-                width: 65,
+                width: 28,
               ), 
               Column(
                 children: [
                   SizedBox(
-                    width: 120, 
-                    height: 120, 
+                    width: 80, 
+                    height: 80, 
                     child: RaisedButton(
                       color: B,
                       onPressed: (){Navigator.of(context).pushNamed('/maquinas');}, 
@@ -222,20 +222,20 @@ class HomePage extends StatelessWidget{
                         Text('Máquinas',
                           style: 
                             TextStyle(
-                              fontSize: 15,
+                              fontSize: 10,
                               color: Colors.white,
                             ))
                 ]
               ),
               SizedBox(
-                width: 100,
+                width: 85,
               ),
               Column(
                 children: [
                   SizedBox(
                     
-                    width: 120,
-                    height: 120,
+                    width: 80,
+                    height: 80,
                     child: RaisedButton(
                           color: B,
                           onPressed: (){
@@ -261,7 +261,46 @@ class HomePage extends StatelessWidget{
               
             ]
           ),
+          SizedBox(
+            height: 10,
+          ),
+          
+          Row(
+            children: [
+              SizedBox(
+                width: 28,
+              ), 
+              Column(
+                children: [
+                  
+                  SizedBox(
+                width: 80,
+                height: 80,
+                child: RaisedButton(
+                        color: B,
+                        onPressed: (){
+                          print('Conseguiu');
+                        },
+                        child: Icon(
+                        Icons.attach_money,
+                        size: 50.0,
+                        color: Colors.white)
+
+                        )
+              ),
+              SizedBox(height: 10,),
+              Text('Tela de pagamento',
+              style: 
+                TextStyle(
+                  fontSize: 10,
+                  color: Colors.white,
+                ))
+                ],
+              ),
+            ]
+          ), 
         ],
+      ),
       ),
     );
   }

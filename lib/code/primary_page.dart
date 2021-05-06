@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const fundo = Color.fromARGB(255, 78, 76, 76);
-const name_Logo = Color.fromARGB(255, 67, 64, 64);
+const name_Logo = 0xFFC1C1C1;
 int buttonColorHover = 0xFF2579D9;
 
 class PrimaryPage extends StatefulWidget{
@@ -18,15 +18,15 @@ class _PrimaryPage extends State<PrimaryPage>{
       backgroundColor: fundo,
       appBar: AppBar(
         title: Text("Protect Trade", 
-        style: TextStyle(color: name_Logo),),
-        backgroundColor: Colors.white,
+        style: TextStyle(color: Color(name_Logo)),),
+        backgroundColor: Color(0xFF333333),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
          SizedBox(
-            height: 250,
+            height: 120,
           ),
           Center(
             
@@ -48,7 +48,7 @@ class _PrimaryPage extends State<PrimaryPage>{
           ),
 
           SizedBox(
-            height: 100,
+            height: 15,
           ),
           SizedBox(
             width: 180,

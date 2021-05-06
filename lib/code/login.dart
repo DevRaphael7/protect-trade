@@ -32,7 +32,8 @@ class Login extends StatelessWidget{
                     style: TextStyle(
                       color:  name_Logo)),
       ),
-        body: Form(
+        body: SingleChildScrollView(
+          child: Form(
           key: _formu,
           child: Container(
           width: MediaQuery.of(context).size.width,
@@ -124,6 +125,6 @@ class Login extends StatelessWidget{
           ],)
         ),
         )
-    );
+    ), );
   }
 }

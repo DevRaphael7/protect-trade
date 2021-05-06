@@ -13,13 +13,16 @@ void main() {
   runApp(MyApp());
 }
 
+const fundo = Color.fromARGB(255, 78, 76, 76);
+
 class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
     return ChangeNotifierProvider(
       create: (ctx) => Usuarios(),
-      child: MaterialApp(
+      child: MaterialApp( 
+      color: fundo,
       debugShowCheckedModeBanner: false,
       title: 'Aplicativo em Flutter',
       initialRoute: '/',

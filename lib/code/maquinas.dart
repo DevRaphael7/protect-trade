@@ -58,7 +58,7 @@ class _State extends State<Maquinas>{
                 child: Row(
                   children: [
                     SizedBox(
-                      width: 180,
+                      width: 90,
                       child:FutureBuilder(
                         future: _initializeVideoPlayerFuture,
                         builder: (context, snapshot){
@@ -80,29 +80,32 @@ class _State extends State<Maquinas>{
                     Text(
                       'Máquina 1',
                       style: TextStyle(
-                        fontSize: 25),
+                        fontSize: 12.5),
                     ),
 
                     Icon(
                       Icons.desktop_windows_sharp,
-                      size: 28.1,),
-                    SizedBox(width: 180,),
+                      size: 14,),
+                    SizedBox(width: 45,),
                     IconButton(
                       onPressed: (){},
                       icon: Icon(Icons.download_sharp)
                     ),
                     SizedBox(width: 20,),
-                    FloatingActionButton(
-                      child: Icon(_controller.value.isPlaying ? Icons.pause : Icons.play_arrow_sharp,),
-                      onPressed: (){
-                        setState(() {
-                      if(_controller.value.isPlaying){
-                        _controller.pause();
-                      }else{
-                        _controller.play();
-                      }
+                    Container(
+                      width: 35,
+                      child: FloatingActionButton(
+                      
+                        child: Icon(_controller.value.isPlaying ? Icons.pause : Icons.play_arrow_sharp,),
+                        onPressed: (){
+                          setState(() {
+                        if(_controller.value.isPlaying){
+                          _controller.pause();
+                        }else{
+                          _controller.play();
+                       }
                       });
-                    }),
+                    }),),
                   ]
                 ),
           )

@@ -14,7 +14,7 @@ class UserTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final avatar = usuarios.logoUsuario == null || usuarios.logoUsuario.isEmpty
       ? CircleAvatar(child: Icon(Icons.person, size: 25, color: Colors.white,), backgroundColor: B,)
-      : CircleAvatar(backgroundImage: NetworkImage(usuarios.logoUsuario), radius: 35.0,);
+      : CircleAvatar(backgroundImage: NetworkImage(usuarios.logoUsuario),);
 
     return Card(
       color: Color(0xFF787474),

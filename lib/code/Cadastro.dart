@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:protect_trade/main.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 
 const fundo = Color.fromARGB(255, 78, 76, 76);
 const B = Color.fromARGB(255, 37, 121, 217);
@@ -8,11 +13,25 @@ const name_Logo = Color.fromARGB(255, 67, 64, 64);
 class Cadastro extends StatelessWidget{
 
   final _form = GlobalKey<FormState>();
-  final myController = TextEditingController();
+  final nome = TextEditingController();
   final emailConntroller = TextEditingController();
+  final senha = TextEditingController();
+  final telefone_c = TextEditingController();
   final urlController = TextEditingController();
-  static String nome;
-  static String senha;
+
+  var url = Uri.parse("http://localhost/php/mysql_teste(Add).php");
+
+  Future<List> _add() async {
+  var response = await http.post(url, body: {
+    'email': emailConntroller.text,
+    'Senha': senha.text,
+  });
+
+    print('Enviado $emailConntroller');
+    var datauser = json.decode(response.body);
+
+    return datauser;
+  }
 
   @override
   Widget build(BuildContext context){
@@ -21,7 +40,7 @@ class Cadastro extends StatelessWidget{
     Navigator.pushReplacementNamed(
       context, 
       '/home',
-      arguments: {'name': myController.value.text,
+      arguments: {'name': nome.value.text,
                   'email': emailConntroller.value.text,
                   'url': urlController.value.text,
                   }
@@ -32,7 +51,7 @@ class Cadastro extends StatelessWidget{
     Navigator.pushReplacementNamed(
       context, 
       '/Login',
-      arguments: {'name': myController.value.text,
+      arguments: {'name': nome.value.text,
                   'email': emailConntroller.value.text}
       );
   }
@@ -85,17 +104,16 @@ class Cadastro extends StatelessWidget{
                     color: null,
                     width: 450,
                     child: TextFormField(
-                      controller: myController,
-                      validator: (myController){
+                      controller: nome,
+                      validator: (nome){
                       
-                      if (myController.isEmpty || myController == null){
+                      if (nome.isEmpty || nome == null){
                         return 'Não pode ser vazio';
                       }
-                      if (myController.trim().length < 3){
+                      if (nome.trim().length < 3){
                         return 'Digite ao menos três caracteres';
                       }
                       
-                      nome = myController;
                       return null;
                     },
                     keyboardType: TextInputType.name,
@@ -120,14 +138,14 @@ class Cadastro extends StatelessWidget{
                   color: null,
                   width: 450,
                   child: TextFormField(
-                    validator: (value){
-                      if(value.trim().length <= 5){
+                    controller: senha,
+                    validator: (senha){
+                      if(senha.trim().length <= 5){
                         return 'Insira pelo menos 6 números';
                       }
-                      if(value.isEmpty || value == null){
+                      if(senha.isEmpty || senha == null){
                         return 'Escreva alguma coisa';
                       }
-                      senha = value;
                     },
 
                     onSaved: (value){
@@ -158,7 +176,10 @@ class Cadastro extends StatelessWidget{
                   width: 450,
                   child: TextFormField(
                     validator: (value){
-                      if(value != senha){
+                      if(value == "" || value == null){
+                        return "O campo não pode ser vazio!";
+                      }
+                      if(value != senha.text){
                         return 'A senha é diferente';
                       }else{
                         print('São iguais');
@@ -227,6 +248,7 @@ class Cadastro extends StatelessWidget{
                   color: null,
                   width: 450,
                   child: TextFormField(
+                    controller: telefone_c,
                     keyboardType: TextInputType.phone,
                     obscureText: false,
                     decoration: InputDecoration(
