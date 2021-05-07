@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:protect_trade/code/Cadastro.dart';
 import 'package:protect_trade/code/Home_page.dart';
 import 'package:protect_trade/code/maquinas.dart';

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:protect_trade/main.dart';
 import 'dart:async';
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 
 
 const fundo = Color.fromARGB(255, 78, 76, 76);
@@ -19,7 +18,7 @@ class Cadastro extends StatelessWidget{
   TextEditingController telefone_c = TextEditingController();
   TextEditingController urlController = TextEditingController();
 
-  var url = Uri.parse("http://localhost/php/mysql_teste(Add).php");
+  var url = Uri.parse("http://localhost/php/Adicionar_proc(USUARIO).php");
 
   Future<List> _add() async {
   var resposta = await http.post(url, body: {
