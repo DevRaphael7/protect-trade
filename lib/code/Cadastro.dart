@@ -13,22 +13,26 @@ const name_Logo = Color.fromARGB(255, 67, 64, 64);
 class Cadastro extends StatelessWidget{
 
   final _form = GlobalKey<FormState>();
-  final nome = TextEditingController();
-  final emailConntroller = TextEditingController();
-  final senha = TextEditingController();
-  final telefone_c = TextEditingController();
-  final urlController = TextEditingController();
+  TextEditingController nome = TextEditingController();
+  TextEditingController emailConntroller = TextEditingController();
+  TextEditingController senha = TextEditingController();
+  TextEditingController telefone_c = TextEditingController();
+  TextEditingController urlController = TextEditingController();
 
   var url = Uri.parse("http://localhost/php/mysql_teste(Add).php");
 
   Future<List> _add() async {
-  var response = await http.post(url, body: {
-    'email': emailConntroller.text,
+  var resposta = await http.post(url, body: {
+
+    'Nome': nome.text,
+    'Email': emailConntroller.text,
     'Senha': senha.text,
+    'Telefone': telefone_c.text,
+
   });
 
     print('Enviado $emailConntroller');
-    var datauser = json.decode(response.body);
+    var datauser = json.decode(resposta.body);
 
     return datauser;
   }
@@ -44,15 +48,6 @@ class Cadastro extends StatelessWidget{
                   'email': emailConntroller.value.text,
                   'url': urlController.value.text,
                   }
-      );
-  }
-
-  void _paraOutraTelaLogin(){
-    Navigator.pushReplacementNamed(
-      context, 
-      '/Login',
-      arguments: {'name': nome.value.text,
-                  'email': emailConntroller.value.text}
       );
   }
   return Scaffold(
@@ -249,6 +244,9 @@ class Cadastro extends StatelessWidget{
                   width: 450,
                   child: TextFormField(
                     controller: telefone_c,
+                    onSaved: (telefone_c){
+
+                    },
                     keyboardType: TextInputType.phone,
                     obscureText: false,
                     decoration: InputDecoration(
@@ -291,7 +289,7 @@ class Cadastro extends StatelessWidget{
                     
 
                 ),
-                onSaved: (value){
+                onSaved: (ur){
 
                 }
                 ),
@@ -321,6 +319,7 @@ class Cadastro extends StatelessWidget{
                             
                             if(isValid){
                               _form.currentState.save();
+                              _add();
                               _paraOutraTelaHome();
                             }
                           }
@@ -333,7 +332,7 @@ class Cadastro extends StatelessWidget{
                   ),
                   TextButton(
                     onPressed: (){
-                      _paraOutraTelaLogin();
+                      Navigator.of(context).pushNamed('/Login');
                     }, 
                     child: Text('Login', 
                                 style: 
