@@ -1,5 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:protect_trade/conta/usuario.dart';
+import 'package:http/http.dart' as http;
+
+var url = Uri.parse("http://localhost/php/getData_proc(USUARIO).php");
+
+int id = 0;
+String nome, senha, telefone_c, email;
 
 const AlgunsUsuarios = {
 
@@ -26,3 +34,27 @@ const AlgunsUsuarios = {
     ),
 
 };
+
+// _getData() async{
+
+// var resposta = await http.post(url, body: {
+
+//   const Usuario(
+//     nome: 'id',
+//     senha: 'senha', 
+//     email: email, 
+//     logoUsuario: 
+//     logoUsuario)
+
+//     // 'id': id,
+//     // 'Nome': nome,
+//     // 'Email': email,
+//     // 'Senha': senha,
+//     // 'Telefone': telefone_c,
+
+//   });
+
+//   var dadosUsuario = json.encode(resposta.body);
+//   print(dadosUsuario);
+//   return dadosUsuario;
+// }

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:protect_trade/provider/usuario.dart';
 import 'package:protect_trade/conta/usuario.dart';
 
+
+
+
 const B = Color.fromARGB(255, 37, 121, 217);
 
 class UserTile extends StatelessWidget {

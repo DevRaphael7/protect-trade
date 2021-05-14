@@ -1,22 +1,64 @@
+import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:protect_trade/code/Cadastro.dart';
 import 'package:protect_trade/conta/usuario.dart';
+
+
 
 const name_Logo = Color.fromARGB(255, 67, 64, 64);
 const fundo = Color.fromARGB(255, 78, 76, 76);
 const B = Color.fromARGB(255, 37, 121, 217);
 
-class Login extends StatelessWidget{
+String usuario = " ";
+
+class Login extends StatefulWidget {
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login>{
 
   final _formu = GlobalKey<FormState>();
+
+  var email = new TextEditingController();
+  var senha = new TextEditingController();
+
+  String msg = '';
+
+  _login() async {
+    var url = Uri.parse("http://localhost/php/Login_proc(Usuario).php");
+    final response = await http.post(url, body: {
+      'Email':email.text,
+      'Senha':senha.text,
+    });
+
+
+    print(response.body);
+
+    var data = json.decode(response.body);
+
+    
+    
+    if(data.length == 0){
+      setState((){
+        msg="Falha no login";
+      });
+    }else{
+      Navigator.of(context).pushNamed('/home');
+    }
+    
+
+    return data;
+  }
+
+
+  
 
   @override
   Widget build(BuildContext context){
     
-    Map data = ModalRoute.of(context).settings.arguments;
-    String valores = data['name'];
-    String email = data['email'];
-
     return Scaffold(
       backgroundColor: fundo,
       appBar: AppBar(
@@ -53,6 +95,7 @@ class Login extends StatelessWidget{
               Container(
                 width: 450,
                 child: TextFormField(
+                    controller: email,
                     decoration: InputDecoration(
                     fillColor: Colors.white,
                     filled: true,
@@ -62,14 +105,12 @@ class Login extends StatelessWidget{
                       borderRadius: BorderRadius.all(Radius.circular(35)),
                     ),
                   ),
-                    validator: (value){
-                      if (value == null || value.isEmpty){
+                    validator: (email){
+                      if (email == null || email.isEmpty){
                         return 'Está vazio';
                       }
 
-                      if(value != valores){
-                        return 'Este usuário não existe';
-                      }
+                      
                     }
                 ),
                 
@@ -80,6 +121,7 @@ class Login extends StatelessWidget{
               Container(
                 width: 450,
                 child: TextFormField(
+                  controller: senha,
                   decoration: InputDecoration(
                     fillColor: Colors.white,
                     filled: true,
@@ -101,9 +143,12 @@ class Login extends StatelessWidget{
                 height: 50,
                 child: RaisedButton(
                           onPressed: (){
+                            
+
                             final isValid = _formu.currentState.validate();
                             
                             if(isValid){
+                              _login();
                               _formu.currentState.save();
                               
                             }
@@ -119,8 +164,10 @@ class Login extends StatelessWidget{
                               borderRadius: BorderRadius.all(
                               Radius.circular(35)
                             )),
-                      )
+                      ),
+                      
               ),
+              Text(msg,style: TextStyle(fontSize: 20.0,color: Colors.red),),
               
           ],)
         ),

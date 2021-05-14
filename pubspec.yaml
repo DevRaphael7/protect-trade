@@ -13,11 +13,12 @@ dependencies:
   chewie: ^0.9.7
 
   cupertino_icons: ^0.1.2
-  http: any
+  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  http: ^0.13.3
   provider:
 
 

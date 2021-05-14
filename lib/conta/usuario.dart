@@ -18,5 +18,13 @@ class Usuario {
     @required this.logoUsuario,
     
   });
+
+  // factory Usuario.fromJson(Map<String, dynamic> json){
+  //   return Usuario(
+  //     id: json['id'] as int,
+  //     firstName: json['first_name'] as String,
+  //     lastName: json['last_name'] as String,
+  //   );
+  // }
   
 }

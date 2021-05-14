@@ -1,8 +1,10 @@
+import 'dart:convert';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:protect_trade/main.dart';
-import 'dart:async';
-import 'dart:convert';
+
+
 
 
 const fundo = Color.fromARGB(255, 78, 76, 76);
@@ -12,29 +14,15 @@ const name_Logo = Color.fromARGB(255, 67, 64, 64);
 class Cadastro extends StatelessWidget{
 
   final _form = GlobalKey<FormState>();
-  TextEditingController nome = TextEditingController();
-  TextEditingController emailConntroller = TextEditingController();
-  TextEditingController senha = TextEditingController();
-  TextEditingController telefone_c = TextEditingController();
-  TextEditingController urlController = TextEditingController();
+  TextEditingController nome = new TextEditingController();
+  TextEditingController emailConntroller = new TextEditingController();
+  TextEditingController senha = new TextEditingController();
+  TextEditingController telefone_c = new TextEditingController();
+  TextEditingController urlController = new TextEditingController();
 
-  var url = Uri.parse("http://localhost/php/Adicionar_proc(USUARIO).php");
+  
 
-  Future<List> _add() async {
-  var resposta = await http.post(url, body: {
-
-    'Nome': nome.text,
-    'Email': emailConntroller.text,
-    'Senha': senha.text,
-    'Telefone': telefone_c.text,
-
-  });
-
-    print('Enviado $emailConntroller');
-    var datauser = json.decode(resposta.body);
-
-    return datauser;
-  }
+  
 
   @override
   Widget build(BuildContext context){
@@ -48,6 +36,24 @@ class Cadastro extends StatelessWidget{
                   'url': urlController.value.text,
                   }
       );
+  }
+
+  _add() async {
+    var url = Uri.parse("http://localhost/php/Adicionar_proc(USUARIO).php");
+    var resposta = await http.post(url, body: {
+
+    'Nome': nome.text,
+    'Email': emailConntroller.text,
+    'Senha': senha.text,
+    'Telefone': telefone_c.text,
+
+  });
+
+    
+    var datauser = json.decode(resposta.body);
+
+    
+    return datauser;
   }
   return Scaffold(
     backgroundColor: fundo,
@@ -320,6 +326,7 @@ class Cadastro extends StatelessWidget{
                               _form.currentState.save();
                               _add();
                               _paraOutraTelaHome();
+                              
                             }
                           }
                           
