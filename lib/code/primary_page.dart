@@ -21,7 +21,15 @@ class _PrimaryPage extends State<PrimaryPage>{
         style: TextStyle(color: Color(name_Logo)),),
         backgroundColor: Color(0xFF333333),
       ),
-      body: Column(
+      body: Container(
+        width: 550,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/LOGO - Para o protótipo.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -72,6 +80,7 @@ class _PrimaryPage extends State<PrimaryPage>{
           ),
           
         ],
+      ),
       ),
     );
   }

@@ -24,31 +24,43 @@ class _LoginState extends State<Login>{
 
   var email = new TextEditingController();
   var senha = new TextEditingController();
-
+  var nome = new TextEditingController();
+  var url = new TextEditingController();
   String msg = '';
 
+  void _paraOutraTelaHome(){
+    Navigator.pushReplacementNamed(
+      context, 
+      '/home',
+      arguments: {
+                  'email': email.text,
+                  }
+      );
+  }
+
   _login() async {
-    var url = Uri.parse("http://localhost/php/Login_proc(Usuario).php");
+    var url = Uri.parse("http://localhost/Protect_trade/Login_proc(Usuario).php");
+    
     final response = await http.post(url, body: {
       'Email':email.text,
       'Senha':senha.text,
+      'Nome': nome.text
     });
 
 
-    print(response.body);
+    
 
     var data = json.decode(response.body);
-
-    
+    print(response.body);
+    print(response.body);
     
     if(data.length == 0){
       setState((){
         msg="Falha no login";
       });
     }else{
-      Navigator.of(context).pushNamed('/home');
+      _paraOutraTelaHome();
     }
-    
 
     return data;
   }

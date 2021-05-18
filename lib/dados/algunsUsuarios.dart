@@ -1,13 +1,11 @@
 import 'dart:convert';
-
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:protect_trade/conta/usuario.dart';
-import 'package:http/http.dart' as http;
-
-var url = Uri.parse("http://localhost/php/getData_proc(USUARIO).php");
 
 int id = 0;
-String nome, senha, telefone_c, email;
+
+
 
 const AlgunsUsuarios = {
 
@@ -32,6 +30,8 @@ const AlgunsUsuarios = {
       email: 'Narutin@email.com',
       logoUsuario: 'https://th.bing.com/th/id/OIP.9i84sNBG9oIH7hkUM2C_WgHaEK?w=292&h=180&c=7&o=5&pid=1.7',
     ),
+
+
 
 };
 

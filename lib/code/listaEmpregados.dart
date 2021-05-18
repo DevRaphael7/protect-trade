@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:protect_trade/provider/usuario.dart';
 import 'package:protect_trade/conta/usuario.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'dart:async';
 
 
 
@@ -12,6 +15,9 @@ class UserTile extends StatelessWidget {
   final Usuario usuarios;
 
   const UserTile(this.usuarios);
+
+  
+  
 
   @override
   Widget build(BuildContext context) {

@@ -38,8 +38,10 @@ class Cadastro extends StatelessWidget{
       );
   }
 
-  _add() async {
-    var url = Uri.parse("http://localhost/php/Adicionar_proc(USUARIO).php");
+    var url = Uri.parse("http://localhost/Protect_trade/Adicionar_proc(USUARIO).php");
+
+ _add() async {
+    
     var resposta = await http.post(url, body: {
 
     'Nome': nome.text,
@@ -50,10 +52,10 @@ class Cadastro extends StatelessWidget{
   });
 
     
-    var datauser = json.decode(resposta.body);
+    // var datauser = json.decode(resposta.body);
 
     
-    return datauser;
+    // return datauser;
   }
   return Scaffold(
     backgroundColor: fundo,
@@ -85,8 +87,13 @@ class Cadastro extends StatelessWidget{
               )
             ),*/
             child: Container(
-              width: MediaQuery.of(context).size.width,
-              
+              width: 550,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/LOGO - Para o protótipo.png"),
+                  fit: BoxFit.cover,
+                ),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [

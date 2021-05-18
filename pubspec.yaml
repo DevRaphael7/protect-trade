@@ -31,4 +31,5 @@ flutter:
 
   assets:
     - lib/images/LOGO - Para o protótipo.png
+    - assets/LOGO - Para o protótipo.png
     - videos/teste3.mp4
